@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
     }
     srand(seed);
 
-    int n = rand() % 1000000 + 1; 
-    int m = select(1, min(500, n)); // number of traps, between 0 and n
+    int n = rand() % 1'000'000'000 + 1; 
+    int m = select(1, min(50, n)); // number of traps, between 0 and n
 
     cout << n << " " << m << endl;
     int last = 0;

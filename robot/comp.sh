@@ -1,16 +1,16 @@
 #!/bin/bash
 
-g++ -o brut brut.cpp
-g++ -o sol sol.cpp
+g++ -o brut rob_square.cpp
+g++ -o sol rob.cpp
 g++ -o gen gen.cpp
 
 for ((i = 1; i <= 100000; i++)); do
     echo "Test $i"
     ./gen > test.in # Pass the test number `i` as the seed
-    ./nas < test.in > brut.out
+    ./brut < test.in > brut.out
     ./sol < test.in > sol.out
 
-    if diff -q brut.out sol.out > /dev/null; then
+    if diff -qwb brut.out sol.out > /dev/null; then
         echo "OK"
     else
         echo "Mismatch found!"
